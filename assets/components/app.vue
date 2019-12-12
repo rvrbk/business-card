@@ -1,15 +1,19 @@
 <template>
-    <div>
-        <qr value="Hello, World!" :options="{ width: 200 }"></qr>
-    </div>
+    <router-view></router-view>
 </template>
 
 <script>
-    import qr from '@chenfengyuan/vue-qrcode';
-
     export default {
-        components: {
-            'qr': qr
+        data() {
+            return {
+                employees: [{
+                    slug: "rikverbeek",
+                    name: "Rik Verbeek",
+                    job: "Founder",
+                    email: "rik@mjlenergize.com",
+                    link: "https://www.linkedin.com/in/rik-verbeek-5b145b5/"
+                }]
+            }
         }
     }
 </script>

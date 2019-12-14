@@ -1,12 +1,19 @@
 <template>
     <section class="bcard">
-        <div class="code">
-            <qr :value="link" :options="{ width: 200, color: { light: '#f2e121' }}"></qr>
+        <div class="left">
+            <div class="code">
+                <qr :value="link" :options="{ width: 300, color: { light: '#f2e121' }}"></qr>
+            </div>
         </div>
-        <div class="person">
-            {{ name }}<br>
-            {{ job }}<br>
-            {{ email }}
+        <div class="right">
+            <div class="person">
+                <h1>{{ name }}</h1>
+                <div class="meta">
+                    <span><i class="material-icons">rowing</i>{{ job }}</span>
+                    <span><i class="material-icons">mail</i><a :href="'mailto:' + email">{{ email }}</a></span>
+                    <span><i class="material-icons">call</i><a :href="'tel:' + telephone">{{ telephone }}</a></span>
+                </div>
+            </div>
         </div>
     </section>
 </template>
@@ -23,6 +30,7 @@
                 name: null,
                 job: null,
                 email: null,
+                telephone: null,
                 link: null
             }
         },
@@ -31,6 +39,7 @@
                 if(this.$route.params.slug == value.slug) {
                     this.name = value.name;
                     this.job = value.job;
+                    this.telephone = value.telephone;
                     this.email = value.email;
                     this.link = value.link;
                 }
